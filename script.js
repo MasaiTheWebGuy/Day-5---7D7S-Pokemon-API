@@ -22,6 +22,11 @@ Building the object from scratch, creating the display for pokemon's information
         use Promise to bring data back at one rather than one at a time for faster results
         Build Pokemon information based off data from API       
         */
+
+
+
+const pokedex = document.getElementById("pokedex") ;     
+
 const fetchPokemon = () => {
     const promises = [];
 
@@ -38,9 +43,22 @@ const fetchPokemon = () => {
                 image: data.sprites['front_default'],
                 type: data.types.map((type) => type.type.name).join(', ')
             }));
-            console.log(pokemon);
+            displayPokemon(pokemon);
             });
         };
         
+ const displayPokemon = (pokemon) => {
+            console.log(pokemon);
+            const pokemonHTMLString = pokemon.map ( pokeman => 
+                `
+            <li class="card">
+                <img class="card-image" src="${pokeman.image}"/>
+                <h2 class="card-title">${pokeman.id}. ${pokeman.name}</h2>
+                <p class="card-subtitle">Type: ${pokeman.type}</p>
+            </li>
+            `)
+            .join('');
+            pokedex.innerHTML = pokemonHTMLString;
+        };
         
 fetchPokemon();

@@ -11,3 +11,6 @@ and get them optimized.
 
 Doing good so keep it up!
 
+Update 4/4/20
+
+Finished the API. There is a part 2 to the video and I will do that plus find interesting ways to build my own thing with this. I did it!
